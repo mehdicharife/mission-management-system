@@ -65,27 +65,14 @@ Contains a number of SOAP operations for handling mission creation and retrieval
        - `mission` (type: `tns:mission`, minOccurs: 0, maxOccurs: unbounded): List of missions available in the system.
    - **Description:** Retrieves a list of all missions available in the system.
 
-The following example demonstrates how to construct a SOAP request for the `createMission` operation:
 
-```xml
-<!-- SOAP Envelope -->
-<soapenv:Envelope
-    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:web="http://spring.io/guides/gs-producing-web-service">
+### Professor Service
+A GraphQL service for managing professors
 
-    <!-- SOAP Header (optional) -->
-    <soapenv:Header/>
+| Field Name        | Description                                      | Example Query                                              | Example Response                                             |
+|-------------------|--------------------------------------------------|------------------------------------------------------------|--------------------------------------------------------------|
+| `professorById`   | Retrieves details of a professor based on ID.     | `query { professorById(id: "3") { id, fullName } }`        | `{ "data": { "professorById": { "id": "3", "fullName": "John Smith" } } }` |
+| `allProfessors`   | Retrieves a list of all professors.              | `query { allProfessors { id, fullName } }`                | `{ "data": { "allProfessors": [ { "id": "1", "fullName": "Professor 1" }, { "id": "2", "fullName": "Professor 2" }, ... ] } }`       |
 
-    <!-- SOAP Body -->
-    <soapenv:Body>
-        <!-- createMissionRequest element -->
-        <web:createMissionRequest>
 
-            <!-- Attributes of createMissionRequest -->
-            <web:professorId>123</web:professorId>
-            <web:title>New Mission</web:title>
-            <web:description>This is a new mission.</web:description>
 
-        </web:createMissionRequest>
-    </soapenv:Body>
-</soapenv:Envelope>
