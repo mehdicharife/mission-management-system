@@ -99,4 +99,19 @@ Manages mission calculation costs and lifecycles. Listens for the "mission reimb
 | PATCH  | /mission-cost-calculations/{id}/refute | Refutes a mission cost calculation by ID       | MANAGER                        |
 
 
+### Mission Order Service Listener
+
+- Listens to the "mission transport treated" event.
+- Reacts by creating a `MissionOrder` based on the event details.
+- Retrieves mission and professor information from Mule ESB.
+- Generates a mission order document using a printer service (commented out).
+- Optionally saves the mission order to the database (commented out).
+
+| Method | Path         | Description                          |   Privilege               | Query Parameters         |
+|--------|--------------|--------------------------------------|--------------------------|--------------------------|
+| GET    | /mission-orders | Retrieves all mission orders  |  SUPERVISOR |  |
+| GET    | /mission-orders | Retrieves all mission orders of a given professor |  SUPERVISOR, PROFESSOR(professorId) | professorId |
+| GET    | /mission-requests | Retrieves mission order for a given mission request|  SUPERVISOR, PROFESSOR(ID) | missionRequestId |
+| POST    | /mission-requests  | Creates a new mission request user  | PROFESSOR  |   
+
 
