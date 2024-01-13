@@ -7,3 +7,6 @@
 [submodule "professor-service"]
 	path = professor-service
 	url = https://github.com/mehdicharife/professor-microservice.git
+[submodule "mission-reimbursement-request-service"]
+	path = mission-reimbursement-request-service
+	url = https://github.com/mehdicharife/mission-reimbursement-request-service.git
