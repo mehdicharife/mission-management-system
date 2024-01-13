@@ -1,3 +1,6 @@
 [submodule "mission-service"]
 	path = mission-service
 	url = https://github.com/mehdicharife/mission-microservice.git
+[submodule "mission-request-service"]
+	path = mission-request-service
+	url = https://github.com/mehdicharife/mission-request-microservice.git
