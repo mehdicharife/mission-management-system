@@ -111,7 +111,6 @@ Manages mission calculation costs and lifecycles. Listens for the "mission reimb
 |--------|--------------|--------------------------------------|--------------------------|--------------------------|
 | GET    | /mission-orders | Retrieves all mission orders  |  SUPERVISOR |  |
 | GET    | /mission-orders | Retrieves all mission orders of a given professor |  SUPERVISOR, PROFESSOR(professorId) | professorId |
-| GET    | /mission-requests | Retrieves mission order for a given mission request|  SUPERVISOR, PROFESSOR(ID) | missionRequestId |
-| POST    | /mission-requests  | Creates a new mission request user  | PROFESSOR  |   
+| GET    | /mission-orders | Retrieves mission order for a given mission request|  SUPERVISOR, PROFESSOR(ID) | missionRequestId |
 
 
