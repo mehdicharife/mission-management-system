@@ -16,3 +16,6 @@
 [submodule "mission-order-microservice"]
 	path = mission-order-microservice
 	url = https://github.com/mehdicharife/mission-order-microservice
+[submodule "mission-cost-calculation-microservice"]
+	path = mission-cost-calculation-microservice
+	url = https://github.com/mehdicharife/mission-cost-calculation-microservice
