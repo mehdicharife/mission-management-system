@@ -141,9 +141,9 @@ Manages mission calculation costs and lifecycles. Listens for the "mission reimb
 
 | Method | Path         | Description                          |   Privilege               | Query Parameters         |
 |--------|--------------|--------------------------------------|--------------------------|--------------------------|
-| GET    | /mission-reimbursement-orders | Retrieves all mission orders  |  SUPERVISOR |  |
-| GET    | /mission-reimbursement-orders | Retrieves all mission orders of a given professor |  SUPERVISOR, PROFESSOR(professorId) | professorId |
-| GET    | /mission-reimbursement-orders | Retrieves mission order for a given mission request|  SUPERVISOR, PROFESSOR(ID) | missionRequestId |
+| GET    | /mission-reimbursement-orders | Retrieves all mission reimbursement orders  |  SUPERVISOR |  |
+| GET    | /mission-reimbursement-orders | Retrieves all mission reimbursement orders of a given professor |  SUPERVISOR, PROFESSOR(professorId) | professorId |
+| GET    | /mission-reimbursement-orders | Retrieves mission reimbursement order for a given mission|  SUPERVISOR, PROFESSOR(ID) | missionId |
 
 
 
