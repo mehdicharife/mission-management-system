@@ -13,3 +13,6 @@
 [submodule "mission-transport-treatment-microservice"]
 	path = mission-transport-treatment-microservice
 	url = https://github.com/mehdicharife/mission-transport-treatment-microservice.git
+[submodule "mission-order-microservice"]
+	path = mission-order-microservice
+	url = https://github.com/mehdicharife/mission-order-microservice
