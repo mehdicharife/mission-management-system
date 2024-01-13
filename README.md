@@ -9,3 +9,18 @@ The system is currently comprised of 9 services, each of which can be tested, bu
 
 ![Infrastructure plan](https://i.ibb.co/7vPFrWG/Copy-of-Mission-Management-System-Page-1-drawio-1.png)
 
+## Services
+
+### Mission Request Service
+Exposes a number of endpoints for handling mission requests and their respective lifecycles
+
+| Method | Path         | Description                          |   Privilege               | Query Parameters         |
+|--------|--------------|--------------------------------------|--------------------------|--------------------------|
+| GET    | /mission-requests | Retrieves all mission requests   |  SUPERVISOR |  |
+| GET    | /mission-requests | Retrieves all mission requests made by a specific professor |  SUPERVISOR, PROFESSOR(ID) | ID |
+| POST    | /mission-requests  | Creates a new mission request user  | PROFESSOR  |   
+| GET    | /mission-requests/{id}  | Retrieves a mission request based on ID  | SUPERVISOR  | 
+| PATCH    | /mission-requests/{id}/approve  | Approves a mission request by ID  | SUPERVISOR  | 
+| PATCH    | /mission-requests/{id}/cancel  | Cancels a mission request by ID  | PROFESSOR  | 
+| PATCH    | /mission-requests/{id}/reject  | Rejects a mission request by ID  | SUPERVISOR  | 
+
