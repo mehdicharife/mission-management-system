@@ -77,7 +77,7 @@ A GraphQL service for managing professors
 
 
 ### Reimbursement Service
-Exposes a number of endpoints for handling reimbursement requests and their respective lifecycles
+Exposes a number of endpoints for handling reimbursement requests and their respective lifecycles.
 
 | Method | Path                                      | Description                                              | Privilege                   |
 |--------|-------------------------------------------|----------------------------------------------------------|-----------------------------|
@@ -99,8 +99,7 @@ Manages mission calculation costs and lifecycles. Listens for the "mission reimb
 | PATCH  | /mission-cost-calculations/{id}/refute | Refutes a mission cost calculation by ID       | MANAGER                        |
 
 
-### Mission Order Service Listener
-
+### Mission Order Service
 - Listens to the "mission transport treated" event.
 - Reacts by:
      1.  Retrieving mission and professor information from Mule ESB;
@@ -115,7 +114,7 @@ Manages mission calculation costs and lifecycles. Listens for the "mission reimb
 | GET    | /mission-orders | Retrieves mission order for a given mission request|  SUPERVISOR, PROFESSOR(ID) | missionRequestId |
 
 
-### Mission Transport Treatment Service Listener
+### Mission Transport Treatment Service
 
 - Listens to the "mission request approved" event.
 - Reacts by:
@@ -136,7 +135,7 @@ Manages mission calculation costs and lifecycles. Listens for the "mission reimb
 - Listens to the "mission cost calculation verified" event.
 - Reacts by:
      1.  Retrieving mission and professor information from Mule ESB;
-     2.  Generating a mission order document from the retrieved resources and saving it to the database. 
+     2.  Generating a mission reimbursement order document from the retrieved resources and saving it to the database. 
 - Exposes a number of endpoints for customized retrieval and update of reimbursement orders:
 
 | Method | Path         | Description                          |   Privilege               | Query Parameters         |
