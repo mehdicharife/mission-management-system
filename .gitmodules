@@ -10,3 +10,6 @@
 [submodule "mission-reimbursement-request-service"]
 	path = mission-reimbursement-request-service
 	url = https://github.com/mehdicharife/mission-reimbursement-request-service.git
+[submodule "mission-transport-treatment-microservice"]
+	path = mission-transport-treatment-microservice
+	url = https://github.com/mehdicharife/mission-transport-treatment-microservice.git
