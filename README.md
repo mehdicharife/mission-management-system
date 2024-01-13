@@ -5,7 +5,7 @@
 
 BHYM is a mission management system that follows the Service Oriented Architecture (SOA) integration pattern using technologies like Mule ESB, Spring Boot, Spring Web Services, and Spring for GraphQL among many others. The system is intended to manage missions, mission requests, and mission reimbursement requests in a modular, decoupled, and efficient fashion.
 
-The system is currently comprised of 9 services, each of which can be tested, built, and deployed independently. The system supports two kinds of communications between the existing services; synchronous via Mule's ESB, and asynchronous via Rabbit's message broker.
+The system is currently comprised of 9 services, each of which can be tested, built, and deployed independently. The system supports two kinds of communications between the existing services; synchronous via Mule's ESB, and asynchronous via Rabbit's message broker. This versatile approach caters to diverse communication needs, allowing for the selection of the most suitable mode based on specific use cases. This flexibility contributes to a resilient and adaptable system architecture, ensuring seamless interaction between existing services.
 
 ![Infrastructure plan](https://i.ibb.co/7vPFrWG/Copy-of-Mission-Management-System-Page-1-drawio-1.png)
 
