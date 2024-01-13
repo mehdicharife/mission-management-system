@@ -88,5 +88,15 @@ Exposes a number of endpoints for handling reimbursement requests and their resp
 | PATCH | /mission-reimbursement-requests/{id}/reject  | Rejects a mission reimbursement request by ID           | SUPERVISOR                  |
 
 
+### Mission Cost Calculation Service
+Manages mission calculation costs and lifecycles. Listens for the "mission reimbursement request approved" event, calculates the mission cost in response, and publishes an event upon verification by the manager.
+
+| Method | Path                               | Description                                        | Privilege                   |
+|--------|------------------------------------|----------------------------------------------------|-----------------------------|
+| GET    | /mission-cost-calculations         | Retrieves all mission cost calculations            | MANAGER                      |
+| GET    | /mission-cost-calculations/{id}    | Retrieves a mission cost calculation based on ID    | MANAGER, PROFESSOR(ID)                     |
+| PATCH  | /mission-cost-calculations/{id}/verify | Verifies a mission cost calculation by ID       | MANAGER                        |
+| PATCH  | /mission-cost-calculations/{id}/refute | Refutes a mission cost calculation by ID       | MANAGER                        |
+
 
 
