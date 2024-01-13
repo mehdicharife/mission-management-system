@@ -119,7 +119,7 @@ Manages mission calculation costs and lifecycles. Listens for the "mission reimb
 
 - Listens to the "mission request approved" event.
 - Reacts by:
-     1.  Retrieving mission and professor information from Mule ESB;
+     1.  Retrieving the associated mission details from Mule ESB;
      2.  Treating the transport of the retrieved mission and persisting the resulted treatment in the database.
 - Exposes a number of endpoints for customized retrieval of mission transport treatments:
 
@@ -128,5 +128,23 @@ Manages mission calculation costs and lifecycles. Listens for the "mission reimb
 | GET    | /mission-transport-treatments | Retrieves all mission transport treatments  |  SUPERVISOR |  |
 | GET    | /mission-transport-treatments | Retrieves all mission transport treatments of a given professor |  SUPERVISOR, PROFESSOR(professorId) | professorId |
 | GET    | /mission-transport-treatments | Retrieves mission transport treatments for a given mission request|  SUPERVISOR, PROFESSOR(ID) | missionRequestId |
+
+
+
+### Mission Reimbursement Order Service
+
+- Listens to the "mission cost calculation verified" event.
+- Reacts by:
+     1.  Retrieving mission and professor information from Mule ESB;
+     2.  Generating a mission order document from the retrieved resources and saving it to the database. 
+- Exposes a number of endpoints for customized retrieval and update of reimbursement orders:
+
+| Method | Path         | Description                          |   Privilege               | Query Parameters         |
+|--------|--------------|--------------------------------------|--------------------------|--------------------------|
+| GET    | /mission-reimbursement-orders | Retrieves all mission orders  |  SUPERVISOR |  |
+| GET    | /mission-reimbursement-orders | Retrieves all mission orders of a given professor |  SUPERVISOR, PROFESSOR(professorId) | professorId |
+| GET    | /mission-reimbursement-orders | Retrieves mission order for a given mission request|  SUPERVISOR, PROFESSOR(ID) | missionRequestId |
+
+
 
 
