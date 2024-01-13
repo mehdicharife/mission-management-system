@@ -76,3 +76,17 @@ A GraphQL service for managing professors
 
 
 
+### Reimbursement Service
+Exposes a number of endpoints for handling reimbursement requests and their respective lifecycles
+
+| Method | Path                                      | Description                                              | Privilege                   |
+|--------|-------------------------------------------|----------------------------------------------------------|-----------------------------|
+| GET    | /mission-reimbursement-requests           | Retrieves all mission reimbursement requests             | SUPERVISOR                  |
+| POST   | /mission-reimbursement-requests           | Creates a new mission reimbursement request user          | PROFESSOR                  |
+| GET    | /mission-reimbursement-requests/{id}      | Retrieves a mission reimbursement request based on ID     | SUPERVISOR                  |
+| PATCH | /mission-reimbursement-requests/{id}/approve | Approves a mission reimbursement request by ID           | SUPERVISOR                  |
+| PATCH | /mission-reimbursement-requests/{id}/reject  | Rejects a mission reimbursement request by ID           | SUPERVISOR                  |
+
+
+
+
