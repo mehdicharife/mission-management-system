@@ -24,3 +24,68 @@ Exposes a number of endpoints for handling mission requests and their respective
 | PATCH    | /mission-requests/{id}/cancel  | Cancels a mission request by ID  | PROFESSOR  | 
 | PATCH    | /mission-requests/{id}/reject  | Rejects a mission request by ID  | SUPERVISOR  | 
 
+### Mission Service
+Contains a number of SOAP operations for handling mission creation and retrieval
+
+| Operation | Request Message                  | Response Message                 | Description                                     |
+|-----------|----------------------------------|----------------------------------|-------------------------------------------------|
+| `getMission`   | `GetMissionRequest` | `GetMissionResponse` | Retrieves details of a mission based on the provided mission ID.                        |
+| `createMission` | `CreateMissionRequest` | `CreateMissionResponse` | Creates a new mission based on the information provided in the request.                |
+| `getAllMissions` | `GetAllMissionsRequest` | `GetAllMissionsResponse` | Retrieves a list of all missions available in the system.                              |
+
+##### Operations:
+
+1. **`getMission`:**
+   - **Request Message:** `GetMissionRequest`
+     - *Attributes:*
+       - `id` (type: `xs:long`, required): The unique identifier of the mission to retrieve.
+   - **Response Message:** `GetMissionResponse`
+     - *Attributes:*
+       - `mission` (type: `tns:mission`): Details of the retrieved mission.
+   - **Description:** Retrieves details of a mission identified by the provided mission ID.
+
+2. **`createMission`:**
+   - **Request Message:** `CreateMissionRequest`
+     - *Attributes:*
+       - `professorId` (type: `xs:long`, required): The unique identifier of the professor associated with the mission.
+       - `title` (type: `xs:string`, required): The title of the mission.
+       - `description` (type: `xs:string`, required): The description of the mission.
+   - **Response Message:** `CreateMissionResponse`
+     - *Attributes:*
+       - `mission` (type: `tns:mission`): Details of the created mission.
+   - **Description:** Creates a new mission based on the information provided in the request.
+
+   **How to Create a Mission:**
+   To create a new mission, send a SOAP request with the `CreateMissionRequest` message to the service endpoint. Include the required attributes `professorId`, `title`, and `description` with the relevant information. The service will respond with a `CreateMissionResponse` containing details of the newly created mission, including its unique identifier (`id`), title, and description.
+
+3. **`getAllMissions`:**
+   - **Request Message:** `GetAllMissionsRequest`
+   - **Response Message:** `GetAllMissionsResponse`
+     - *Attributes:*
+       - `mission` (type: `tns:mission`, minOccurs: 0, maxOccurs: unbounded): List of missions available in the system.
+   - **Description:** Retrieves a list of all missions available in the system.
+
+The following example demonstrates how to construct a SOAP request for the `createMission` operation:
+
+```xml
+<!-- SOAP Envelope -->
+<soapenv:Envelope
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:web="http://spring.io/guides/gs-producing-web-service">
+
+    <!-- SOAP Header (optional) -->
+    <soapenv:Header/>
+
+    <!-- SOAP Body -->
+    <soapenv:Body>
+        <!-- createMissionRequest element -->
+        <web:createMissionRequest>
+
+            <!-- Attributes of createMissionRequest -->
+            <web:professorId>123</web:professorId>
+            <web:title>New Mission</web:title>
+            <web:description>This is a new mission.</web:description>
+
+        </web:createMissionRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
