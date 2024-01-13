@@ -22,3 +22,6 @@
 [submodule "reimbursement-order-service"]
 	path = reimbursement-order-service
 	url = https://github.com/mehdicharife/reimbursement-order-service.git
+[submodule "mission-request-aggregation-service"]
+	path = mission-request-aggregation-service
+	url = https://github.com/mehdicharife/mission-request-aggregation-service.git
