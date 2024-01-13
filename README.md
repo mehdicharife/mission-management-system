@@ -102,15 +102,31 @@ Manages mission calculation costs and lifecycles. Listens for the "mission reimb
 ### Mission Order Service Listener
 
 - Listens to the "mission transport treated" event.
-- Reacts by creating a `MissionOrder` based on the event details.
-- Retrieves mission and professor information from Mule ESB.
-- Generates a mission order document using a printer service (commented out).
-- Optionally saves the mission order to the database (commented out).
+- Reacts by:
+     1.  Retrieving mission and professor information from Mule ESB;
+     2.  Generating a mission order document from the retrieved resources and saving it to the database. 
+- Generates a mission order document using a printer service .
+-  Exposes a number of endpoints for customized retrieval of mission orders:
 
 | Method | Path         | Description                          |   Privilege               | Query Parameters         |
 |--------|--------------|--------------------------------------|--------------------------|--------------------------|
 | GET    | /mission-orders | Retrieves all mission orders  |  SUPERVISOR |  |
 | GET    | /mission-orders | Retrieves all mission orders of a given professor |  SUPERVISOR, PROFESSOR(professorId) | professorId |
 | GET    | /mission-orders | Retrieves mission order for a given mission request|  SUPERVISOR, PROFESSOR(ID) | missionRequestId |
+
+
+### Mission Transport Treatment Service Listener
+
+- Listens to the "mission request approved" event.
+- Reacts by:
+     1.  Retrieving mission and professor information from Mule ESB;
+     2.  Treating the transport of the retrieved mission and persisting the resulted treatment in the database.
+- Exposes a number of endpoints for customized retrieval of mission transport treatments:
+
+| Method | Path         | Description                          |   Privilege               | Query Parameters         |
+|--------|--------------|--------------------------------------|--------------------------|--------------------------|
+| GET    | /mission-transport-treatments | Retrieves all mission transport treatments  |  SUPERVISOR |  |
+| GET    | /mission-transport-treatments | Retrieves all mission transport treatments of a given professor |  SUPERVISOR, PROFESSOR(professorId) | professorId |
+| GET    | /mission-transport-treatments | Retrieves mission transport treatments for a given mission request|  SUPERVISOR, PROFESSOR(ID) | missionRequestId |
 
 
