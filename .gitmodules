@@ -25,3 +25,6 @@
 [submodule "mission-request-aggregation-service"]
 	path = mission-request-aggregation-service
 	url = https://github.com/mehdicharife/mission-request-aggregation-service.git
+[submodule "mission-management-system-esb"]
+	path = mission-management-system-esb
+	url = https://github.com/mehdicharife/mission-management-system-esb.git
