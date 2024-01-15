@@ -5,7 +5,7 @@
 
 BHYM is a mission management system that follows the Service Oriented Architecture (SOA) integration pattern using technologies like Mule ESB, Spring Boot, Spring Web Services, and Spring for GraphQL among many others. The system is intended to manage missions, mission requests, and mission reimbursement requests in a modular, decoupled, and efficient fashion.
 
-The system is currently comprised of 9 services, each of which can be tested, built, and deployed independently. The system supports two kinds of communications between the existing services; synchronous via Mule's ESB, and asynchronous via Rabbit's message broker.
+The system is currently comprised of 9 services, each of which can be tested, built, and deployed independently. The system supports two kinds of communications between the existing services; synchronous via Mule's ESB, and asynchronous via Rabbit's message broker. This versatile approach caters to diverse communication needs, allowing for the selection of the most suitable mode based on specific use cases. This flexibility contributes to a resilient and adaptable system architecture, ensuring seamless interaction between existing services.
 
 ![Infrastructure plan](https://i.ibb.co/7vPFrWG/Copy-of-Mission-Management-System-Page-1-drawio-1.png)
 
@@ -77,7 +77,7 @@ A GraphQL service for managing professors
 
 
 ### Reimbursement Service
-Exposes a number of endpoints for handling reimbursement requests and their respective lifecycles
+Exposes a number of endpoints for handling reimbursement requests and their respective lifecycles.
 
 | Method | Path                                      | Description                                              | Privilege                   |
 |--------|-------------------------------------------|----------------------------------------------------------|-----------------------------|
@@ -99,8 +99,7 @@ Manages mission calculation costs and lifecycles. Listens for the "mission reimb
 | PATCH  | /mission-cost-calculations/{id}/refute | Refutes a mission cost calculation by ID       | MANAGER                        |
 
 
-### Mission Order Service Listener
-
+### Mission Order Service
 - Listens to the "mission transport treated" event.
 - Reacts by:
      1.  Retrieving mission and professor information from Mule ESB;
@@ -115,7 +114,7 @@ Manages mission calculation costs and lifecycles. Listens for the "mission reimb
 | GET    | /mission-orders | Retrieves mission order for a given mission request|  SUPERVISOR, PROFESSOR(ID) | missionRequestId |
 
 
-### Mission Transport Treatment Service Listener
+### Mission Transport Treatment Service
 
 - Listens to the "mission request approved" event.
 - Reacts by:
@@ -136,7 +135,7 @@ Manages mission calculation costs and lifecycles. Listens for the "mission reimb
 - Listens to the "mission cost calculation verified" event.
 - Reacts by:
      1.  Retrieving mission and professor information from Mule ESB;
-     2.  Generating a mission order document from the retrieved resources and saving it to the database. 
+     2.  Generating a mission reimbursement order document from the retrieved resources and saving it to the database. 
 - Exposes a number of endpoints for customized retrieval and update of reimbursement orders:
 
 | Method | Path         | Description                          |   Privilege               | Query Parameters         |
